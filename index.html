@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>Online order</title>
+	<meta charset="utf-8">
+	<meta >
+	<span class="highlight"><script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script></span>
+</head>
+<body >
+	<a href="#/route1/param">Route 1</a>
+	<a href="#/route1/potasse">Route 1</a>
+	<div ng-view=""></div>
+	<script type="text/javascript">v
+		var app = angular.module("app",['ngRoute']);
+		app.config(function($routeProvider) {
+  $routeProvider
+    .when("/route1/:param", {
+      template: "<div>Route #1</div><div>Route param: {{param}}</div>",
+      controller: "Ctrl"
+    })
+    .when("/route2/:param", {
+      template: "<div>Route #2 </div><div>Route param: {{param}}</div>",
+      controller: "Ctrl"
+    });
+});
+
+
+app.controller("Ctrl", function($scope, $routeParams) {
+  $scope.param = $routeParams.param;
+});
+	</script>
+</body>
+</html>
